@@ -90,7 +90,12 @@ public class Logic {
         return result;
     }
 
-	private void updateIfMutate(Command command) throws StorageOperationException {
+	/**
+	 * Check if command is mutating data, if so update addressbook
+	 * @param command
+	 * @throws StorageOperationException
+	 */
+    private void updateIfMutate(Command command) throws StorageOperationException {
 		if(command.isMutating()) {
         	storage.save(addressBook);
         }
